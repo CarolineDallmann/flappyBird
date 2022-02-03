@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-Regular.ttf') format('truetype');
+}
+
+* {
+  font-family: 'Oswald', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #0D262D;
+  color: #fff;
+  height: 100%;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+}
+
+@font-face {
+  font-family: "Pixel";
+  src: url("../fonts/Pixel.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+div[wm-flappy] {
+  background-color: #56bcfc;
+  height: 600px;
+  width: 1000px;
+  position: relative;
+  overflow: hidden;
+}
+
+.superior {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inferior {
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.cor {
+  background-image: linear-gradient(to right, #415028, #98c248, #edffcb);
+}
+
+.propBarraVert {
+  height: 400px;
+  width: 130px;
+  border-right: solid 2px black;
+  border-left: solid 2px black;
+}
+
+.propBarraHoriz {
+  width: 150px;
+  height: 30px;
+  border: solid 2px black;
+}
+.bird {
+  position: absolute;
+  left: 450px;
+  top: 250px;
+}
+.bird img {
+  height: 40px;
+  width: 56px;
+}
+.pontuacao,
+.fim {
+  position: absolute;
+  font-family: "Pixel";
+  font-size: 60px;
+  margin: 0px 10px;
+  z-index: 1;
+}
+
+.pontuacao {
+  right: 5px;
+}
+
+.inicio {
+  font-family: "Oswald";
+  font-size: 25px;
+  position: absolute;
+  top: 300px;
+  left: 170px;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.fim {
+    left: 350px;
+    top: 250px;
+    display: none;
+ }
+
+h1 {
+  font-family: "Oswald";
+  font-size: 40px;
+}
