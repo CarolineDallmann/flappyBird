@@ -25,7 +25,7 @@ const intervalCriaCanos = () => {
     canosSup.push(criaCanos('superior'));
     canosInf.push(criaCanos('inferior'));
 
-    removeCanos(canosSup);
+    removeCanos(canosSup, true);
     removeCanos(canosInf);
 };
 
@@ -37,6 +37,8 @@ function criaCanos(pos) {
     if (pos === 'superior') {
         tempTop = getTop()
     }
+
+    document.querySelector('.pontuacao').innerHTML = `SCORE ${contadorPontos + canosSup.filter((c)=> c.left <= 294).length}`;
 
     const topDefinido = pos === 'superior' ? -tempTop : (-tempTop + 600);
     div.style.top = `${topDefinido}px`
@@ -66,11 +68,14 @@ function styleLeft(obj) {
     return
 }
 
-function removeCanos(arr) {
+function removeCanos(arr, incrementa = false) {
     arr.forEach(obj => {
         if (obj.left <= -235) {
             obj.cano.remove()
             arr.shift()
+            if (incrementa) {
+                contadorPontos++
+            }
             return
         }
     })
@@ -87,7 +92,7 @@ function limpaSetIntervals() {
         telaInicial = true
         document.querySelector('.fim').style.display = 'none'
         document.querySelector('.inicio').style.display = 'block'
-        posPassaro.top = 250   
+        posPassaro.top = 250
     }, 2000);
 }
 
@@ -143,13 +148,9 @@ const intervalMovePassaro = () => {
         )
             && posPassaro.top < element.bottom() &&
             posPassaro.top > element.top) {
-            limpaSetIntervals();  
+            limpaSetIntervals();
         }
 
-        if (element.left === 294) {
-            contadorPontos++;
-            document.querySelector('.pontuacao').innerHTML = `SCORE ${contadorPontos}`;
-        }
     });
 
     canosInf.forEach(element => {
